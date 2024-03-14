@@ -9,7 +9,7 @@
                 
 
                 <form method="POST" action="/listing/<%= listing._id %>?_method=PUT" novalidate
-                    class="needs-validation" >
+                    class="needs-validation" enctype="multipart/form-data" >
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
                         <input type="text" value="<%= listing.title %>" name="listing[title]" class="form-control" required>
@@ -28,10 +28,15 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="image" class="form-label">Image Link</label>
-                        <input type="text" class="form-control" name="listing[image]" value="<%= listing.image %>" required>
+                        <img src="<%=   previousImage %>" alt="previous image">
+                       
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Upload Image</label>
+                        <input type="file" class="form-control" name="listing[image]"  >
                         <div class="invalid-feedback">
-                            Image neede!
+                            Image needed!
                           </div>
                     </div>
                     <div class="row">
